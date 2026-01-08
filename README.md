@@ -1,16 +1,64 @@
-# React + Vite
+# NSM Component Library
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A comprehensive collection of reusable React components built with Vite, Storybook, and Mantine.
 
-Currently, two official plugins are available:
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-netlify-id/deploy-status)](https://nsm-component-library.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
+Check out the live Storybook documentation: [https://nsm-component-library.netlify.app/](https://nsm-component-library.netlify.app/)
 
-## React Compiler
+## 🛠️ Tech Stack
+- **Framework:** [React 19](https://react.dev/)
+- **Build Tool:** [Vite](https://vitejs.dev/)
+- **Documentation:** [Storybook 9](https://storybook.js.org/)
+- **UI Components:** [Mantine Core](https://mantine.dev/)
+- **Styling:** SASS/SCSS & CSS Modules
+- **Charts:** [FusionCharts](https://www.fusioncharts.com/) & [AmCharts 5](https://www.amcharts.com/)
+- **Icons:** [Flaticon UI Icons](https://www.flaticon.com/uicons)
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📦 Installation
 
-## Expanding the ESLint configuration
+```bash
+# Clone the repository
+git clone https://github.com/pranavwaykar/component-library.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Navigate to the project directory
+cd nsm-component-library
+
+# Install dependencies
+npm install
+```
+
+## 📖 Usage
+
+### Development Server
+Run the Vite development server:
+```bash
+npm run dev
+```
+
+### Storybook
+Run Storybook locally to view and interact with components:
+```bash
+npm run storybook
+```
+
+### Build
+Build the library for production:
+```bash
+npm run build
+```
+
+Build Storybook for static hosting:
+```bash
+npm run build-storybook
+```
+
+## 🌐 Deployment
+This project is configured for seamless deployment on **Netlify**.
+- **Build Command:** `npm run build-storybook`
+- **Publish Directory:** `storybook-static`
+- **Environment Variables:** `NPM_FLAGS = --legacy-peer-deps` (required for React 19 compatibility with certain chart libraries).
+
+## 📄 License
+This project is private and intended for use by the NSM team.
