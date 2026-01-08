@@ -1,0 +1,185 @@
+@import "../../../styles/mixins.scss";
+
+.month-calendar-comp {
+  position: absolute;
+  inset: 20px;
+  border: 1px solid var(--border);
+  overflow: visible;
+  border-radius: 5px;
+  @include verticalFlex();
+  gap: 1px;
+
+  .cc-days {
+    @include flexAlign();
+    background-color: #fff;
+    z-index: 1;
+
+    .ccd-day {
+      flex: 1;
+      height: 40px;
+      position: relative;
+
+      .ccdd-inset {
+        position: absolute;
+        inset: -1px;
+        border: 1px solid var(--border);
+        padding: 6px 11px;
+        @include flexAlign();
+        @include fontProperties(13px, normal, var(--textDark));
+      }
+    }
+  }
+  .mcc-body {
+    flex: 1;
+    position: relative;
+
+    .mccb-inset {
+      position: absolute;
+      inset: 0;
+      /* allow popovers to escape calendar grid bounds */
+      overflow: visible;
+      @include hideScrollbar();
+      @include verticalFlex();
+    }
+
+    .cc-week {
+      width: 100%;
+      min-height: 140px;
+      flex: 1;
+      display: flex;
+
+      .ccw-day {
+        flex: 1;
+        position: relative;
+
+        &.disabled {
+          background-color: rgba(240, 244, 249, 0.4);
+          .ccw-day-inset {
+            overflow: hidden;
+            z-index: 1;
+
+            .ccwd-date {
+              color: #7e8b9f;
+              font-weight: 500;
+            }
+          }
+        }
+
+        .ccw-day-inset {
+          position: absolute;
+          inset: -1px;
+          border: 1px solid var(--border);
+          @include verticalFlex();
+          gap: 5px;
+          padding: 6px 11px;
+
+          .ccwd-date {
+            @include setSpaceBetween();
+            .ccwdd-main {
+              @include fontProperties(13px, 600, var(--textNormal));
+            }
+          }
+
+          &.currentDate {
+            border: 2px solid rgba(134, 117, 250, 0.5);
+            z-index: 5;
+          }
+
+          .ccwd-list {
+            flex: 1;
+            @include verticalFlex();
+            gap: 3px;
+            /* allow popover outside the list container */
+            overflow: visible;
+            .ccwd-item {
+              padding: 2px 6px;
+              border-radius: 4px;
+              background: rgba(38, 99, 255, 0.06);
+              border: 1px solid rgba(38, 99, 255, 0.18);
+              @include fontProperties(11px, 500, var(--textDark));
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              text-align: left;
+              cursor: pointer;
+            }
+          }
+          /* Popover styling (sibling of .ccwd-list) */
+          .ccwd-popover {
+            position: absolute;
+            z-index: 1000;
+            width: 280px;
+            background: #fff;
+            border: 1px solid var(--border);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-radius: 8px;
+            /* placement within the calendar grid (inside) */
+            &.pos-x-right { left: calc(100% + 8px); right: auto; }
+            &.pos-x-left { right: calc(100% + 8px); left: auto; }
+            &.pos-y-bottom { top: 8px; bottom: auto; }
+            &.pos-y-top { bottom: 8px; top: auto; }
+            .ccwd-popover-inset {
+              padding: 10px 12px;
+              @include verticalFlex();
+              gap: 8px;
+              .ccwd-popover-head {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                padding-bottom: 6px;
+                border-bottom: 1px solid #eef1f5;
+                i {
+                  color: #ffbb21;
+                }
+                .name {
+                  @include fontProperties(13px, 600, var(--textDark));
+                }
+              }
+              .ccwd-popover-row {
+                @include setSpaceBetween();
+                gap: 10px;
+                .lbl {
+                  @include fontProperties(12px, 600, var(--textMuted));
+                }
+                .val {
+                  @include fontProperties(12px, 500, var(--textDark));
+                  text-align: right;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.shreded-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  opacity: 0.1;
+
+  .sbg-inset {
+    position: absolute;
+    left: -100px;
+    top: -200px;
+    width: 200%;
+    transform-origin: center;
+    transform: rotate(-45deg);
+    overflow: hidden;
+
+    .sbgi-line {
+      height: 5px;
+      border-bottom: 1px solid var(--primary);
+
+      &.disabled {
+        z-index: 2;
+        border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+      }
+    }
+  }
+}
+
+

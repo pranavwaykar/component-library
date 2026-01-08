@@ -1,0 +1,71 @@
+.sb-iconbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #fff;
+}
+.sb-iconbox.is-clickable {
+  cursor: pointer;
+}
+.sb-iconbox.is-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.sb-iconbox.is-loading {
+  cursor: progress;
+}
+.sb-iconbox__icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+.sb-iconbox__icon.has-icon {
+  width: 28px;
+  height: 28px;
+}
+.sb-iconbox__dot {
+  position: absolute;
+  right: -1px;
+  top: -1px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 999px;
+}
+.sb-iconbox__count {
+  font-weight: 800;
+  color: inherit;
+}
+.sb-iconbox__label {
+  color: inherit;
+  font-size: var(--sb-font-size-base);
+}
+
+.sb-iconbox--sm {
+  padding: 6px 8px;
+  border-radius: 10px;
+}
+.sb-iconbox--lg {
+  padding: 14px 16px;
+}
+
+.sb-iconbox--primary {
+  border-color: #111827;
+}
+.sb-iconbox--success {
+  border-color: #30a46c;
+}
+.sb-iconbox--warning {
+  border-color: #f5d90a;
+}
+.sb-iconbox--error {
+  border-color: #ef4444;
+}
+.sb-iconbox--info {
+  border-color: #3b82f6;
+}
