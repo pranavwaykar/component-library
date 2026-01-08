@@ -2,6 +2,9 @@
   command = "npm run build-storybook"
   publish = "storybook-static"
 
+[build.environment]
+  NPM_FLAGS = "--legacy-peer-deps"
+
 [[headers]]
   for = "/*"
   [headers.values]
